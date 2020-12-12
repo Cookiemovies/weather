@@ -1,3 +1,21 @@
+const axios = require('axios');
+const apiKey = process.env.WEATHERAPIKEY;
+
+async function getWeather(townName) {
+    const endpoint = `http://api.openweathermap.org/data/2.5/weather?q=${townName}&units=metric&appid=${apiKey}`;
+
+    try {
+      const result = await axios(endpoint);
+      const data = result.data;
+      // console.log(data);
+      return data;
+    }
+    catch (error) {
+      console.log("Error in getting weather data");
+      // return '{ "error":"Error getting data from openweathermap" }';
+    }
+}
+
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function Weather processed a request.');
 
@@ -5,10 +23,10 @@ module.exports = async function (context, req) {
     let response = "";
 
     if (name) {
-        response = "Hello " + name;
+        response = await getWeather(name);
     }
     else {
-        response = "Please enter an argument like ?name=Martin";
+        response = "Please enter an argument like ?name=Munich to retrieve the weather from this town";
     }
     
     context.res = {

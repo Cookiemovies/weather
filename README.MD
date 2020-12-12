@@ -15,8 +15,9 @@ Steps:
 4. Deploy the function to function app  
 
 Before deploying you can try locally when you have "func" installed:  
-
-
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash  
+  
+  
 Once the app the deployed you need to install the axios node module.
 The under application settings add your WEATHERAPIKEY like in your environment.  
 

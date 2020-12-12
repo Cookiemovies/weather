@@ -11,8 +11,7 @@ async function getWeather(townName) {
       return data;
     }
     catch (error) {
-      console.log("Error in getting weather data");
-      // return '{ "error":"Error getting data from openweathermap" }';
+      return "{Error in getting weather data}";
     }
 }
 
